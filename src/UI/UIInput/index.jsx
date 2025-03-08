@@ -1,58 +1,43 @@
-import './styles.css'
-import React, { useState, useRef, useEffect } from "react";
-
-export const UIInput = ({ label, value, onChange }) => {
-  const [isFocused, setIsFocused] = useState(false);
-  const labelRef = useRef(null);
-
-  useEffect(() => {
-    if (labelRef.current) {
-      if (isFocused || value) {
-        labelRef.current.style.transform = "translateY(-17px)";
-        labelRef.current.style.fontSize = "12px";
-        labelRef.current.style.color = "#6200ee";
-        labelRef.current.style.backgroundColor = "white";
-        labelRef.current.style.padding = "0 5px";
-
-      } else {
-        console.log(value)
-        if (value != "") {
-          labelRef.current.style.transform = "translateY(0)";
-          labelRef.current.style.fontSize = "16px";
-          labelRef.current.style.color = "#aaa";
-        }
-      }
-    }
-  }, [isFocused, value]);
-
+import React, { useState } from "react";
+import TextField from "@mui/material/TextField";
+export const UIInput = ({ full }) => {
+  const [value, setValue] = useState("")
   return (
-    <div style={{ position: "relative", width: "100%" }}>
-      <label
-        ref={labelRef}
-        style={{
-          position: "absolute",
-          left: "10px",
-          top: "10px",
-          transition: "all 0.2s ease",
-          pointerEvents: "none",
-        }}
-      >
-        {label}
-      </label>
-      <input
-        type="text"
-        value={value}
-        className="input"
-        onChange={onChange}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
-        style={{
-          width: "-webkit-fill-available",
+    <TextField
+      label="Outlined"
+      variant="outlined"
+      onChange={(e) => setValue(e.target.value)}
+      fullWidth={full}
+      sx={{
+        "& .MuiOutlinedInput-root": {
+          color: "#194866",
+          fontFamily: "Arial",
+          fontWeight: "400",
+          fontSize: "14px",
+          overflow: "visible",
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#007bff", // Change to your desired hover border color
+          },
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: "rgba(25,72,102,0.5)",
+            borderWidth: "0.5px",
+
+          },
+        },
+        "& .MuiInputLabel-outlined": {
+          color: "#194866",
+          fontWeight: "400",
+          fontSize: "14px",
+          lineHeight: value == "" ? "0.7" : "1.5",
+          overflow: "visible",
+        },
+        "& .MuiInputLabel-outlined.Mui-focused": {
+          lineHeight: "1.5",
+        },
+        "& .MuiOutlinedInput-input": {
           padding: "10px",
-          border: "1px solid #aaa",
-          fontSize: "16px",
-        }}
-      />
-    </div>
+        },
+      }}
+    />
   );
-};
+}

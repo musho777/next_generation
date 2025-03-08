@@ -11,8 +11,8 @@ function App() {
       <Router>
         <Navbar />
         <div className="layout">
-          {/* <Signup /> */}
-          <Singin />
+          <Signup />
+          {/* <Singin /> */}
         </div>
       </Router>
     </div>
