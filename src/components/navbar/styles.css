@@ -1,0 +1,125 @@
+.navbar {
+  width: 100%;
+  background: #34C88A;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.logo>img {
+  width: 40px;
+  height: 38px;
+}
+
+.logo>p {
+  color: #FFFFFF;
+  font-weight: 700;
+  font-family: "Assistant";
+}
+
+.navbar_links {
+  display: flex;
+  gap: 40px;
+  margin-top: 10px;
+}
+
+.navbar_links>a {
+  font-weight: 700;
+  text-decoration: none;
+  font-family: "Assistant";
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.4s ease, color 0.4s ease;
+}
+
+.navbar_active_link {
+  color: #F8F8F8 !important;
+  border-bottom: 2px solid #F8F8F8 !important;
+}
+
+.language {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+.language>p {
+  font-weight: 700;
+  font-family: "Arial";
+  font-size: 12px;
+  line-height: 24px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.4s ease, color 0.4s ease;
+}
+
+.activeLanguage {
+  color: #F8F8F8 !important;
+}
+
+.sign_In {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: absolute;
+  right: 150px;
+  bottom: 15px;
+}
+
+.sign_In>p {
+  font-weight: 700;
+  text-decoration: none;
+  font-family: "Assistant";
+  font-size: 14px;
+  line-height: 24px;
+  cursor: pointer;
+  color: #F8F8F8;
+}
+
+.menu {
+  display: none;
+}
+
+@media only screen and (min-width: 701px) and (max-width: 1024px) {
+  .sign_In {
+    right: 25px;
+  }
+}
+
+@media only screen and (max-width: 701px) {
+  .sign_In {
+    display: none;
+  }
+
+  .navbar_links {
+    display: none;
+  }
+
+  .language {
+    display: none;
+  }
+
+  .logo>p {
+    display: none;
+  }
+
+  .navbar {
+    padding: 5px 0;
+  }
+
+  .menu {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+}
