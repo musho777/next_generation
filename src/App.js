@@ -3,6 +3,7 @@ import { AuthForm } from './components/authForm';
 import { Navbar } from './components/navbar';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Signup } from './pages/auth/signup';
+import { Singin } from './pages/auth/signin';
 
 function App() {
   return (
@@ -10,8 +11,8 @@ function App() {
       <Router>
         <Navbar />
         <div className="layout">
-          <Signup />
-          {/* <AuthForm /> */}
+          {/* <Signup /> */}
+          <Singin />
         </div>
       </Router>
     </div>

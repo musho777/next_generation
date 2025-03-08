@@ -1,4 +1,4 @@
-import "./styles.css"
+import "../styles.css"
 import { AuthForm } from "../../../components/authForm"
 import { UIInput } from "../../../UI/UIInput"
 import { UIButton } from "../../../UI/UIButton"

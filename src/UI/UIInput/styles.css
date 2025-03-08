@@ -4,3 +4,7 @@
   padding: 10px;
   width: calc(50% - 30px);
 }
+
+.input::placeholder {
+  color: gray !important;
+}

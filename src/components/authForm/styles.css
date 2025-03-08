@@ -3,11 +3,14 @@
   padding: 20px;
   width: 350px;
   border-radius: 20px;
+  overflow: scroll;
+  position: relative;
 }
 
 .auth_form_wrapper {
   display: flex;
   justify-content: center;
+  height: 90%;
 }
 
 .auth_form_header {

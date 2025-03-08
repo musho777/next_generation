@@ -1,0 +1,82 @@
+.sign_up {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  position: relative;
+}
+
+.sign_up_button {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sign_up_button>p {
+  font-family: "Assistant";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #34C88A;
+}
+
+.forgot_password {
+  display: flex;
+  justify-content: end;
+  margin-top: 5px;
+}
+
+.forgot_password>a {
+  font-family: "Assistant";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #194866;
+}
+
+.sign_in_button {
+  margin-top: 30px;
+}
+
+.sign_up_line {
+  margin-top: 20px;
+  border-bottom: 0.5px solid rgba(25, 72, 102, 0.5);
+  margin-bottom: 15px;
+}
+
+.login_type {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.login_type_button {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.login_type_button>button {
+  width: 48%;
+  background-color: #F8F8F8;
+  border: none;
+  box-shadow: 0px 2px 6px 0px rgba(25, 72, 102, 0.16);
+  border: 0.5px solid rgba(25, 72, 102, 0.3);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.login_type>p {
+  font-family: "Assistant";
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: #194866;
+}
