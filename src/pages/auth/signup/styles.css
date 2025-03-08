@@ -1,0 +1,21 @@
+.sign_up {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.sign_up_button {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sign_up_button>p {
+  font-family: "Assistant";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #34C88A;
+}
