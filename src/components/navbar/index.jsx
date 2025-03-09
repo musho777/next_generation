@@ -46,9 +46,9 @@ export const Navbar = () => {
         </a>
       </div>
       <div className="language">
-        <p onClick={() => setLanguage("en")} className={language == "en" && "activeLanguage"}>Eng</p>
-        <p onClick={() => setLanguage("am")} className={language == "am" && "activeLanguage"}>Հայ</p>
-        <p onClick={() => setLanguage("ru")} className={language == "ru" && "activeLanguage"}>Рус</p>
+        <p onClick={() => setLanguage("en")} className={language == "en" ? "activeLanguage" : ""}>Eng</p>
+        <p onClick={() => setLanguage("am")} className={language == "am" ? "activeLanguage" : ""}>Հայ</p>
+        <p onClick={() => setLanguage("ru")} className={language == "ru" ? "activeLanguage" : ""}>Рус</p>
       </div>
       <div className="sign_In">
         <SignIn />

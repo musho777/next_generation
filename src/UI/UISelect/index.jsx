@@ -4,64 +4,67 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import './styles.css';
-import { InputBase, styled } from '@mui/material';
+import { InputBase, styled, FormHelperText } from '@mui/material';
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
+  // Add custom styling if necessary
 }));
 
-
-export const UISelect = () => {
-  const [age, setAge] = React.useState('');
-
+export const UISelect = ({ value, setValue, label, error, helperText }) => {
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setValue(event.target.value);
   };
-
 
   return (
     <Box>
-      <FormControl fullWidth variant="outlined">
+      <FormControl fullWidth variant="outlined" error={error}>
         <InputLabel
           sx={{
             color: 'rgb(25, 72, 102)',
-            lineHeight: !age ? 0.5 : 1,
+            fontSize: 14,
+            backgroundColor: value ? 'white' : 'transparent',
+            lineHeight: !value ? 0.6 : 1,
             overflow: 'visible',
-            backgroundColor: age && "white",
-            padding: age && "0 10px",
-            margin: age && "0 -5px",
+            padding: value ? '0 10px' : '0',
+            margin: value ? '0 -5px' : '0',
             '&.Mui-focused': {
               color: 'rgb(25, 72, 102)',
-              backgroundColor: "white",
-              padding: "0 10px",
-              margin: "0 -5px",
+              backgroundColor: 'white',
+              padding: '0 10px',
+              margin: '0 -5px',
               lineHeight: 1,
             },
+            '&.MuiFormLabel-root.Mui-error': {
+              color: '#d32f2f',
+              backgroundColor: 'white',
+              padding: '0 10px',
+              margin: '0 -5px',
+              lineHeight: 1.5,
+            },
           }}
-          id={"age-select-label"}>Age</InputLabel>
+          id="age-select-label"
+          shrink={value || error} // Ensures label moves up when there is a value or an error
+        >
+          {label}
+        </InputLabel>
+
         <Select
           labelId="age-select-label"
           id="age-select"
-          value={age}
-          label="Age"
+          value={value}
           onChange={handleChange}
+          label={label}
           input={<BootstrapInput />}
           sx={{
             textAlign: 'left',
-            color: "rgb(25, 72, 102)",
-
-            "& .MuiInputBase-input": {
-              position: 'relative',
-              border: '0.5px solid rgba(25,72,102,0.5)',
+            color: 'rgb(25, 72, 102)',
+            '& .MuiInputBase-input': {
+              border: `0.5px solid ${!error ? 'rgba(25,72,102,0.5)' : '#d32f2f'}`,
               fontSize: 14,
-              padding: "8px",
+              padding: '8px',
               '&:hover': {
-                borderColor: 'rgb(0, 123, 255)', // Change the color on hover
+                borderColor: 'rgb(0, 123, 255)',
               },
-            },
-
-            '& .MuiFormLabel-root-MuiInputLabel-root': {
-              lineHeight: 1,
             },
           }}
         >

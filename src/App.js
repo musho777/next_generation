@@ -8,11 +8,11 @@ import { Singin } from './pages/auth/signin';
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router future={{ v7_relativeSplatPath: true }}>
         <Navbar />
         <div className="layout">
-          <Signup />
-          {/* <Singin /> */}
+          {/* <Signup /> */}
+          <Singin />
         </div>
       </Router>
     </div>
