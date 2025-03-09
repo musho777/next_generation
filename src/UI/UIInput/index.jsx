@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import { IconButton, InputAdornment } from "@mui/material";
 import { CloseEyeSvg, EyeSvg } from "../../assets/svg/svg";
 
 export const UIInput = ({ value, setValue, error, label, type = "text" }) => {
-  const [ltype, setLType] = useState(type)
   const [showPassword, setShowPassword] = useState(true);
   return (
     <TextField
@@ -13,7 +12,7 @@ export const UIInput = ({ value, setValue, error, label, type = "text" }) => {
       value={value}
       onChange={(e) => setValue(e.target.value)}
       error={error}
-      type={showPassword ? ltype : "text"}
+      type={showPassword ? type : "text"}
       sx={{
         "& .MuiOutlinedInput-root": {
           color: "#194866",
@@ -48,9 +47,9 @@ export const UIInput = ({ value, setValue, error, label, type = "text" }) => {
       }}
       InputProps={{
         endAdornment: (
-          ltype === "password" ?
+          type === "password" ?
             <InputAdornment position="end">
-              {ltype === "password" && <IconButton onClick={() => setShowPassword((prev) => !prev)} edge="end">
+              {type === "password" && <IconButton onClick={() => setShowPassword((prev) => !prev)} edge="end">
                 {showPassword ? <EyeSvg /> : <CloseEyeSvg />}
               </IconButton>}
             </InputAdornment> :

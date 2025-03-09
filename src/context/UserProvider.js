@@ -6,6 +6,7 @@ export const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const [error, setError] = useState("")
+  const [loginError, setLoginError] = useState("")
   const [loading, setLoading] = useState(false)
 
   const generateRandomToken = () => {
@@ -34,7 +35,7 @@ export const UserProvider = ({ children }) => {
 
   const loginUser = (email, password) => {
     return new Promise((resolve, reject) => {
-      setLoading(true); // Set loading state to true before starting the process
+      setLoading(true);
 
       setTimeout(() => {
         const user = users.find(user => user.email === email && user.password === password);
@@ -43,10 +44,9 @@ export const UserProvider = ({ children }) => {
           setCurrentUser(user);
           const token = generateRandomToken();
           setLoading(false);
-          console.log(user)
           resolve({ user, token });
         } else {
-          setError("invalid_credentials");
+          setLoginError("invalid_credentials");
           setLoading(false);
         }
       }, 1000);
@@ -54,7 +54,7 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ users, currentUser, registerUser, loginUser, error, loading }}>
+    <UserContext.Provider value={{ users, currentUser, registerUser, loginUser, error, loading, loginError }}>
       {children}
     </UserContext.Provider>
   );

@@ -11,15 +11,9 @@ export const Singin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
-  const [errorMessage, setErrorMessage] = useState("");
   const [openModal, setOpenModal] = useState(false)
-  const [token, setToken] = useState()
-  const { loginUser, error, loading } = useUserContext();
+  const { loginUser, loginError, loading } = useUserContext();
   const [loginData, setLoginData] = useState({})
-  const mockUser = {
-    email: "test@example.com",
-    password: "password123",
-  };
 
   const validateSignIn = () => {
     const errors = {};
@@ -40,8 +34,6 @@ export const Singin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage("");
-
     if (validateSignIn()) {
       loginUser(email, password).then((r) => {
         setLoginData(r)
@@ -50,7 +42,6 @@ export const Singin = () => {
     }
   };
 
-  console.log(loginData)
   return (
     <AuthForm description={t("welcome_back")} title={t("sign_in")}>
       <form onSubmit={handleSubmit}>
@@ -72,7 +63,7 @@ export const Singin = () => {
         <div className="forgot_password">
           <a href="#">{t("forgot_password")}</a>
         </div>
-        <div className="error_message">{t(error)}</div>
+        <div className="error_message">{t(loginError)}</div>
         <div className="sign_in_button">
           <UIButton loading={loading} type="submit" title={t("sign_in")} full />
         </div>
@@ -85,15 +76,19 @@ export const Singin = () => {
           </div>
         </div>
       </form>
-      <MyModal token={token} isOpen={openModal} onClose={() => setOpenModal(false)} >
+      <MyModal isOpen={openModal} onClose={() => setOpenModal(false)} >
         <p>User</p>
         <div className='user_data'>
+          <p>token:{loginData?.token}</p>
+
           <p>email:{loginData?.user?.email}</p>
           <p>name:{loginData?.user?.name}</p>
           <p>surname:{loginData?.user?.lastName}</p>
           <p>country:{loginData?.user?.country}</p>
           <p>region:{loginData?.user?.region}</p>
           <p>city:{loginData?.user?.city}</p>
+          <p>phone:{loginData?.user?.phone}</p>
+
         </div>
       </MyModal>
     </AuthForm>

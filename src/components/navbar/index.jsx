@@ -1,15 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './styles.css'
 import myImage from '../../assets/images/logo.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { MenuSvg, SignIn } from '../../assets/svg/svg';
 import { useTranslation } from 'react-i18next';
 export const Navbar = () => {
-  const [language, setLanguage] = useState("en")
   const location = useLocation();
   const { t, i18n } = useTranslation();
   const navigate = useNavigate()
-  console.log(location)
+  const currentLanguage = i18n.language;
+  const [language, setLanguage] = useState("")
+  useEffect(() => {
+    if (currentLanguage) {
+      setLanguage(currentLanguage.split('-')[0])
+    }
+  }, [currentLanguage])
   return <div className="navbar">
     <div>
       <div className="logo">
@@ -71,7 +76,7 @@ export const Navbar = () => {
         </div> :
         <div onClick={() => navigate("/signin")} className="sign_In">
           <SignIn />
-          <p>{t("sign_up")}</p>
+          <p>{t("sign")}</p>
         </div>
       }
       <div className="menu">

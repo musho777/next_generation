@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next"
 import { useUserContext } from "../../../context/UserProvider"
 import MyModal from "../../../components/modal"
 import { useNavigate } from "react-router-dom"
+import { UIPhone } from "../../../UI/UIPhone"
 export const Signup = () => {
 
   const [name, setName] = useState('');
@@ -18,6 +19,8 @@ export const Signup = () => {
   const [password, setPassword] = useState("")
   const [country, setСountry] = useState("")
   const [confirm_password, setConfirm_Password] = useState()
+  const [phone, setPhone] = useState("")
+  const [phoneCode, setPhoneCode] = useState("+1")
 
 
   const { t } = useTranslation();
@@ -27,12 +30,20 @@ export const Signup = () => {
 
   const navigation = useNavigate()
 
+
+
   const validate = () => {
     const errors = {};
     if (!name) errors.name = "Name is required";
     if (!lastName) errors.lastName = "Last name is required"
     if (!country) errors.country = "Country is required"
     if (!region) errors.region = "Regtion is required"
+    if (!phone) errors.phone = "Phone is required"
+    else if (!/^[0-9]+$/.test(phone)) {
+      errors.phone = "Phone number must only contain digits";
+    } else if (phone.length < 7) {
+      errors.phone = "Phone number must have at least 7 digits";
+    }
     if (!city) errors.city = "City, Village is required"
     if (!password) errors.password = "Password is required"
     if (!confirm_password) errors.confirm_password = "Confirm password is required"
@@ -50,6 +61,7 @@ export const Signup = () => {
 
 
   const handleSubmit = (e) => {
+    const number = `${phoneCode} ${phone}`
     e.preventDefault();
     if (validate()) {
       registerUser({
@@ -60,6 +72,7 @@ export const Signup = () => {
         lastName,
         region,
         city,
+        phone: number,
       }).then((e) => {
         setOpenModal(true)
       })
@@ -90,10 +103,17 @@ export const Signup = () => {
           label={errors.email ?? t("email")}
           type="email"
         />
+        <UIPhone
+          error={errors.phone}
+          phoneCode={phoneCode}
+          setPhoneCode={(e) => setPhoneCode(e)}
+          phone={phone}
+          setPhone={(e) => setPhone(e)}
+        />
         <UISelect
           value={country}
           setValue={(e) => setСountry(e)}
-          error={errors.country ?? false}
+          error={errors.country}
           label={errors?.country ?? t("country")}
         />
         <UISelect
