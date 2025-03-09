@@ -23,5 +23,6 @@
   "blog": "Blog",
   "teachers": "Teachers",
   "donors": "Donors",
-  "invalid_credentials": "Invalid credentials"
+  "invalid_credentials": "Invalid credentials",
+  "successful": "Successful"
 }

@@ -23,5 +23,6 @@
   "blog": "Блог",
   "teachers": "Учителя",
   "donors": "Доноры",
-  "invalid_credentials": "Недействительные учетные данные"
+  "invalid_credentials": "Недействительные учетные данные",
+  "successful": "Успешный"
 }

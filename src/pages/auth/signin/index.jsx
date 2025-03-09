@@ -3,6 +3,7 @@ import { AuthForm } from "../../../components/authForm";
 import { UIButton } from "../../../UI/UIButton";
 import { UIInput } from "../../../UI/UIInput";
 import { useTranslation } from 'react-i18next';
+import MyModal from '../../../components/modal';
 
 export const Singin = () => {
   const { t } = useTranslation();
@@ -11,6 +12,8 @@ export const Singin = () => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [openModal, setOpenModal] = useState(false)
+  const [token, setToken] = useState()
 
   const mockUser = {
     email: "test@example.com",
@@ -38,9 +41,12 @@ export const Singin = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (email === mockUser.email && password === mockUser.password) {
+          const generatedToken = `mock-jwt-token-${Math.random().toString(36).substr(2, 9)}`;
+          setToken(generatedToken); // Save the generated token using setToken
+          setOpenModal(true);
           resolve({
             message: "Login successful",
-            token: "mock-jwt-token-123456",
+            token: generatedToken,
           });
         } else {
           reject({ message: "invalid_credentials" });
@@ -48,7 +54,6 @@ export const Singin = () => {
       }, 1000);
     });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage("");
@@ -57,10 +62,8 @@ export const Singin = () => {
       setIsLoading(true);
       try {
         const response = await mockLoginRequest(email, password);
-        console.log(response.message); // Handle successful login response
-        // Redirect to another page or update state here
       } catch (error) {
-        setErrorMessage(error.message); // Handle error
+        setErrorMessage(error.message);
       } finally {
         setIsLoading(false);
       }
@@ -101,6 +104,7 @@ export const Singin = () => {
           </div>
         </div>
       </form>
+      <MyModal token={token} isOpen={openModal} onClose={() => setOpenModal(false)} />
     </AuthForm>
   );
 };
