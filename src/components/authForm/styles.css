@@ -10,8 +10,8 @@
 .auth_form_wrapper {
   display: flex;
   justify-content: center;
-  height: 90%;
-  max-height: 750px;
+  height: 600px;
+  padding-bottom: 30px;
 }
 
 .auth_form_header {

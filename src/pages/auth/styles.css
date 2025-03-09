@@ -89,3 +89,18 @@
   line-height: 24px;
   color: red;
 }
+
+.user_data {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user_data>p {
+  height: 10px;
+  font-family: "Assistant";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+}

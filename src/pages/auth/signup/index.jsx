@@ -15,7 +15,6 @@ export const Signup = () => {
   const [email, setEmail] = useState('');
   const [region, setRegion] = useState("")
   const [city, setCity] = useState("")
-  const [school, setSchool] = useState("")
   const [password, setPassword] = useState("")
   const [country, setСountry] = useState("")
   const [confirm_password, setConfirm_Password] = useState()
@@ -127,11 +126,15 @@ export const Signup = () => {
       <div className="error_message">{t(error)}</div>
       <div className="sign_up_button">
         <p>{t("register_as_a_donor")}</p>
-        <UIButton loading={loading} title={"ok"} type="submit" />
+        <div>
+          <UIButton loading={loading} type="submit" title={t("sign_in")} full />
+        </div>
       </div>
     </form>
     <MyModal isOpen={openModal} onClose={() => setOpenModal(false)} >
-      <button onClick={() => navigation("/")}>login</button>
+      <div>
+        <UIButton onClick={() => navigation("/")} title={t("sign_in")} full />
+      </div>
     </MyModal>
   </AuthForm>
 

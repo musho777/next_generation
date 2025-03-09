@@ -46,7 +46,7 @@ export const UserProvider = ({ children }) => {
           console.log(user)
           resolve({ user, token });
         } else {
-          setError("Invalid_credentials");
+          setError("invalid_credentials");
           setLoading(false);
         }
       }, 1000);

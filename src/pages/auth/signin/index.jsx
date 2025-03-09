@@ -11,7 +11,6 @@ export const Singin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [openModal, setOpenModal] = useState(false)
   const [token, setToken] = useState()
@@ -73,7 +72,7 @@ export const Singin = () => {
         <div className="forgot_password">
           <a href="#">{t("forgot_password")}</a>
         </div>
-        <div className="error_message">{t(errorMessage)}</div>
+        <div className="error_message">{t(error)}</div>
         <div className="sign_in_button">
           <UIButton loading={loading} type="submit" title={t("sign_in")} full />
         </div>
@@ -87,8 +86,8 @@ export const Singin = () => {
         </div>
       </form>
       <MyModal token={token} isOpen={openModal} onClose={() => setOpenModal(false)} >
-        <p>User:</p>
-        <div >
+        <p>User</p>
+        <div className='user_data'>
           <p>email:{loginData?.user?.email}</p>
           <p>name:{loginData?.user?.name}</p>
           <p>surname:{loginData?.user?.lastName}</p>
