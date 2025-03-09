@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import './styles.css'
 import myImage from '../../assets/images/logo.png';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { MenuSvg, SignIn } from '../../assets/svg/svg';
 import { useTranslation } from 'react-i18next';
 export const Navbar = () => {
   const [language, setLanguage] = useState("en")
   const location = useLocation();
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate()
+  console.log(location)
   return <div className="navbar">
     <div>
       <div className="logo">
@@ -17,7 +19,7 @@ export const Navbar = () => {
       <div className="navbar_links">
         <a
           href="/#Teachers"
-          className={location.hash === "#Teachers" ? "navbar_active_link" : ""}
+          className={(location.hash === "#Teachers" || location.hash === "") ? "navbar_active_link" : ""}
         >
           {t("teachers")}
         </a>
@@ -62,10 +64,16 @@ export const Navbar = () => {
           setLanguage("ru")
         }} className={language == "ru" ? "activeLanguage" : ""}>Рус</p>
       </div>
-      <div className="sign_In">
-        <SignIn />
-        <p>{t("sign_in")}</p>
-      </div>
+      {location.pathname == "/signin" ?
+        <div onClick={() => navigate("/")} className="sign_In">
+          <SignIn />
+          <p>{t("sign_in")}</p>
+        </div> :
+        <div onClick={() => navigate("/signin")} className="sign_In">
+          <SignIn />
+          <p>{t("sign_up")}</p>
+        </div>
+      }
       <div className="menu">
         <MenuSvg />
       </div>
