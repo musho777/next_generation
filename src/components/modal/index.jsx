@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { CloseSvg, SuccessSvg } from '../../assets/svg/svg';
 import { useTranslation } from 'react-i18next';
 
-function MyModal({ token, isOpen, onClose }) {
+function MyModal({ token, isOpen, onClose, children }) {
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -26,10 +26,10 @@ function MyModal({ token, isOpen, onClose }) {
       <div className="modal-content">
         <SuccessSvg />
         <h2>{t("successful")}</h2>
-        <p>{token}</p>
         <div onClick={onClose} className='modal_close'>
           <CloseSvg />
         </div>
+        {children}
       </div>
     </div>,
     document.getElementById('modal-root')

@@ -4,13 +4,13 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { InputBase, styled, FormHelperText } from '@mui/material';
+import { InputBase, styled } from '@mui/material';
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   // Add custom styling if necessary
 }));
 
-export const UISelect = ({ value, setValue, label, error, helperText }) => {
+export const UISelect = ({ value, setValue, label, error }) => {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
@@ -68,9 +68,9 @@ export const UISelect = ({ value, setValue, label, error, helperText }) => {
             },
           }}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={"Ten"}>Ten</MenuItem>
+          <MenuItem value={"Twenty"}>Twenty</MenuItem>
+          <MenuItem value={"Thirty"}>Thirty</MenuItem>
         </Select>
       </FormControl>
     </Box>

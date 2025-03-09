@@ -4,6 +4,7 @@ import { UIButton } from "../../../UI/UIButton";
 import { UIInput } from "../../../UI/UIInput";
 import { useTranslation } from 'react-i18next';
 import MyModal from '../../../components/modal';
+import { useUserContext } from '../../../context/UserProvider';
 
 export const Singin = () => {
   const { t } = useTranslation();
@@ -14,7 +15,8 @@ export const Singin = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [openModal, setOpenModal] = useState(false)
   const [token, setToken] = useState()
-
+  const { loginUser, error, loading } = useUserContext();
+  const [loginData, setLoginData] = useState({})
   const mockUser = {
     email: "test@example.com",
     password: "password123",
@@ -37,39 +39,19 @@ export const Singin = () => {
     return Object.keys(errors).length === 0;
   };
 
-  const mockLoginRequest = (email, password) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (email === mockUser.email && password === mockUser.password) {
-          const generatedToken = `mock-jwt-token-${Math.random().toString(36).substr(2, 9)}`;
-          setToken(generatedToken); // Save the generated token using setToken
-          setOpenModal(true);
-          resolve({
-            message: "Login successful",
-            token: generatedToken,
-          });
-        } else {
-          reject({ message: "invalid_credentials" });
-        }
-      }, 1000);
-    });
-  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage("");
 
     if (validateSignIn()) {
-      setIsLoading(true);
-      try {
-        const response = await mockLoginRequest(email, password);
-      } catch (error) {
-        setErrorMessage(error.message);
-      } finally {
-        setIsLoading(false);
-      }
+      loginUser(email, password).then((r) => {
+        setLoginData(r)
+        setOpenModal(true)
+      })
     }
   };
 
+  console.log(loginData)
   return (
     <AuthForm description={t("welcome_back")} title={t("sign_in")}>
       <form onSubmit={handleSubmit}>
@@ -93,7 +75,7 @@ export const Singin = () => {
         </div>
         <div className="error_message">{t(errorMessage)}</div>
         <div className="sign_in_button">
-          <UIButton loading={isLoading} type="submit" title={t("sign_in")} full disabled={isLoading} />
+          <UIButton loading={loading} type="submit" title={t("sign_in")} full />
         </div>
         <div className="sign_up_line" />
         <div className="login_type">
@@ -104,7 +86,17 @@ export const Singin = () => {
           </div>
         </div>
       </form>
-      <MyModal token={token} isOpen={openModal} onClose={() => setOpenModal(false)} />
+      <MyModal token={token} isOpen={openModal} onClose={() => setOpenModal(false)} >
+        <p>User:</p>
+        <div >
+          <p>email:{loginData?.user?.email}</p>
+          <p>name:{loginData?.user?.name}</p>
+          <p>surname:{loginData?.user?.lastName}</p>
+          <p>country:{loginData?.user?.country}</p>
+          <p>region:{loginData?.user?.region}</p>
+          <p>city:{loginData?.user?.city}</p>
+        </div>
+      </MyModal>
     </AuthForm>
   );
 };

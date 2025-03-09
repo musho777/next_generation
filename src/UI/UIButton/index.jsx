@@ -3,6 +3,7 @@ import './styles.css'
 export const UIButton = ({ loading, full, type = "button", title }) => {
   return <button
     type={type}
+    disabled={loading}
     style={full && { width: "100%" }}
     className="button"
   >

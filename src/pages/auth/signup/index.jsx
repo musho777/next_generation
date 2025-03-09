@@ -5,32 +5,36 @@ import { UIButton } from "../../../UI/UIButton"
 import { UISelect } from '../../../UI/UISelect'
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
+import { useUserContext } from "../../../context/UserProvider"
+import MyModal from "../../../components/modal"
+import { useNavigate } from "react-router-dom"
 export const Signup = () => {
 
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
-  const [region, setRegion] = useState('')
-  const [errors, setErrors] = useState({});
+  const [region, setRegion] = useState("")
   const [city, setCity] = useState("")
   const [school, setSchool] = useState("")
-  const [subject, setSubject] = useState("")
-  const [grade, setGrade] = useState("")
   const [password, setPassword] = useState("")
+  const [country, setСountry] = useState("")
   const [confirm_password, setConfirm_Password] = useState()
+
+
   const { t } = useTranslation();
+  const { registerUser, error, loading } = useUserContext();
+  const [openModal, setOpenModal] = useState(false)
+  const [errors, setErrors] = useState({});
 
-
+  const navigation = useNavigate()
 
   const validate = () => {
     const errors = {};
     if (!name) errors.name = "Name is required";
     if (!lastName) errors.lastName = "Last name is required"
+    if (!country) errors.country = "Country is required"
     if (!region) errors.region = "Regtion is required"
     if (!city) errors.city = "City, Village is required"
-    if (!school) errors.school = "School is required"
-    if (!subject) errors.subject = "Subject is required"
-    if (!grade) errors.grade = "Grade is required"
     if (!password) errors.password = "Password is required"
     if (!confirm_password) errors.confirm_password = "Confirm password is required"
     else if (password !== confirm_password) {
@@ -49,6 +53,17 @@ export const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
+      registerUser({
+        email,
+        password,
+        country,
+        name,
+        lastName,
+        region,
+        city,
+      }).then((e) => {
+        setOpenModal(true)
+      })
     }
   };
 
@@ -77,6 +92,12 @@ export const Signup = () => {
           type="email"
         />
         <UISelect
+          value={country}
+          setValue={(e) => setСountry(e)}
+          error={errors.country ?? false}
+          label={errors?.country ?? t("country")}
+        />
+        <UISelect
           value={region}
           setValue={(e) => setRegion(e)}
           error={errors.region}
@@ -87,30 +108,6 @@ export const Signup = () => {
           setValue={(e) => setCity(e)}
           error={errors.city}
           label={errors.city ?? t("city")}
-        />
-        <UISelect
-          value={school}
-          setValue={(e) => setSchool(e)}
-          error={errors.school}
-          label={errors.school ?? t("school")}
-        />
-        <UISelect
-          value={subject}
-          setValue={(e) => setSubject(e)}
-          error={errors.school}
-          label={errors.school ?? t("subject")}
-        />
-        <UISelect
-          value={grade}
-          setValue={(e) => setGrade(e)}
-          error={errors.grade}
-          label={errors.grade ?? t("grade")}
-        />
-        <UISelect
-          value={region}
-          setValue={(e) => setRegion(e)}
-          error={errors.region}
-          label={errors.region ?? t("region")}
         />
         <UIInput
           value={password}
@@ -127,11 +124,15 @@ export const Signup = () => {
           type="password"
         />
       </div>
+      <div className="error_message">{t(error)}</div>
       <div className="sign_up_button">
         <p>{t("register_as_a_donor")}</p>
-        <UIButton title={"ok"} type="submit" />
+        <UIButton loading={loading} title={"ok"} type="submit" />
       </div>
     </form>
+    <MyModal isOpen={openModal} onClose={() => setOpenModal(false)} >
+      <button onClick={() => navigation("/")}>login</button>
+    </MyModal>
   </AuthForm>
 
 }
