@@ -3,7 +3,6 @@ import { Navbar } from '../navbar/index.jsx'
 import '../../App.css';
 
 export const Layout = () => {
-
   return (<>
     <div className="App">
       <Navbar />

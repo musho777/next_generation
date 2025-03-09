@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, FormControl, InputBase, MenuItem, Select, styled, TextField, FormHelperText } from "@mui/material";
+import { Box, InputBase, MenuItem, Select, styled, TextField, FormHelperText } from "@mui/material";
 
 const countryCodes = [
   { code: "+1", label: "🇺🇸 US" },
@@ -84,7 +84,6 @@ export const UIPhone = ({ error, setPhone, setPhoneCode, phoneCode, phone }) => 
               setPhone(input);
             }
           }}
-          // onChange={(e) => { phoneNumber.length < 7 && setPhone(e.target.value) }}
           placeholder="99999999"
           variant="standard"
           type="number"

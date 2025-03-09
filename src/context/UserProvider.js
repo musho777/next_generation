@@ -31,7 +31,6 @@ export const UserProvider = ({ children }) => {
         if (users.some(user => user.email === data.email)) {
           setError("User already exists");
           setLoading(false);
-          // reject("User already exists");
           return;
         }
 

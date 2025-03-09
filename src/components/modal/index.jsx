@@ -9,12 +9,10 @@ function MyModal({ token, isOpen, onClose, children }) {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden'; // Disable scrolling
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = ''; // Enable scrolling again
+      document.body.style.overflow = '';
     }
-
-    // Cleanup the effect when the modal is unmounted or closed
     return () => {
       document.body.style.overflow = '';
     };
