@@ -88,7 +88,7 @@
   display: none;
 }
 
-@media only screen and (min-width: 701px) and (max-width: 1024px) {
+@media only screen and (min-width: 821px) and (max-width: 1024px) {
   .sign_In {
     right: 25px;
   }
