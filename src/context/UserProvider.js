@@ -3,7 +3,18 @@ import React, { createContext, useState, useContext } from 'react';
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([
+    {
+      name: "test",
+      lastName: "testyan",
+      email: "test@gmail.com",
+      region: "NA",
+      city: "Yerevan",
+      country: "Armenia",
+      phone: "+37493613007",
+      password: "12345678"
+    }
+  ]);
   const [currentUser, setCurrentUser] = useState(null);
   const [error, setError] = useState("")
   const [loginError, setLoginError] = useState("")
