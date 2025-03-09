@@ -22,5 +22,6 @@
   "contact_us": "Contact us",
   "blog": "Blog",
   "teachers": "Teachers",
-  "donors": "Donors"
+  "donors": "Donors",
+  "invalid_credentials": "Invalid credentials"
 }

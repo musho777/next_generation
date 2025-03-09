@@ -80,3 +80,12 @@
   line-height: 24px;
   color: #194866;
 }
+
+.error_message {
+  height: 10px;
+  font-family: "Assistant";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: red;
+}

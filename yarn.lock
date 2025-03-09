@@ -9574,6 +9574,7 @@ __metadata:
     react-i18next: ^15.4.1
     react-router-dom: ^6.30.0
     react-scripts: 5.0.1
+    react-spinners: ^0.15.0
     web-vitals: ^2.1.4
   languageName: unknown
   linkType: soft
@@ -11417,6 +11418,16 @@ __metadata:
   bin:
     react-scripts: bin/react-scripts.js
   checksum: 92afa2f245c7092ccc97d5609dc7a2130616262e34da7f15072d9442e2d2e1d4909a91022abd1faac1336eb17c5525a10d9bd43e1ae374c7ec941ca20addca68
+  languageName: node
+  linkType: hard
+
+"react-spinners@npm:^0.15.0":
+  version: 0.15.0
+  resolution: "react-spinners@npm:0.15.0"
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 8c0aa14ccd47aac49db73c810650b78eba9b301d055293ae015b2a74e173c115dd11c6e26f8c9031ee954742d098023c9bbe76c60d4b4809e38fc95a6a3be917
   languageName: node
   linkType: hard
 
