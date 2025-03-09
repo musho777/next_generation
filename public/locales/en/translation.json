@@ -26,5 +26,19 @@
   "donors": "Donors",
   "invalid_credentials": "Invalid credentials",
   "successful": "Successful",
-  "country": "Country"
+  "country": "Country",
+  "nameRequired": "Name is required",
+  "lastNameRequired": "Last name is required",
+  "countryRequired": "Country is required",
+  "regionRequired": "Region is required",
+  "phoneRequired": "Phone is required",
+  "phoneInvalid": "Phone number must only contain digits",
+  "phoneLength": "Phone number must have at least 7 digits",
+  "cityRequired": "City, Village is required",
+  "passwordRequired": "Password is required",
+  "passwordLength": "Password must have at least 8 characters",
+  "confirmPasswordRequired": "Confirm password is required",
+  "passwordMismatch": "Passwords do not match",
+  "emailRequired": "Email is required",
+  "emailInvalid": "Email is invalid"
 }

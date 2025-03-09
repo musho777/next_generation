@@ -1,18 +1,15 @@
-import React, { useState } from "react";
 import { Box, InputBase, MenuItem, Select, styled, TextField, FormHelperText } from "@mui/material";
 
 const countryCodes = [
-  { code: "+1", label: "🇺🇸 US" },
-  { code: "+44", label: "🇬🇧 UK" },
-  { code: "+91", label: "🇮🇳 IN" },
-  { code: "+374", label: "🇦🇲 AM" },
+  { code: "+1", label: "US" },
+  { code: "+44", label: "UK" },
+  { code: "+91", label: "IN" },
+  { code: "+374", label: "AM" },
 ];
 
 const BootstrapInput = styled(InputBase)(() => ({}));
 
 export const UIPhone = ({ error, setPhone, setPhoneCode, phoneCode, phone }) => {
-  const [countryCode, setCountryCode] = useState("+1");
-  const [phoneNumber, setPhoneNumber] = useState("");
 
   return (
     <Box

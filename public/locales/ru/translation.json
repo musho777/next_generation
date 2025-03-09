@@ -26,5 +26,19 @@
   "donors": "Доноры",
   "invalid_credentials": "Недействительные учетные данные",
   "successful": "Успешный",
-  "country": "Страна"
+  "country": "Страна",
+  "nameRequired": "Имя обязательно",
+  "lastNameRequired": "Фамилия обязательна",
+  "countryRequired": "Страна обязательна",
+  "regionRequired": "Регион обязателен",
+  "phoneRequired": "Телефон обязателен",
+  "phoneInvalid": "Номер телефона должен содержать только цифры",
+  "phoneLength": "Номер телефона должен содержать как минимум 7 цифр",
+  "cityRequired": "Город, деревня обязательны",
+  "passwordRequired": "Пароль обязателен",
+  "passwordLength": "Пароль должен содержать хотя бы 8 символов",
+  "confirmPasswordRequired": "Подтверждение пароля обязательно",
+  "passwordMismatch": "Пароли не совпадают",
+  "emailRequired": "Email обязателен",
+  "emailInvalid": "Неверный формат email"
 }

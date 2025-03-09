@@ -7,7 +7,7 @@ import { Language } from './components/language';
 import { Links } from './components/links';
 export const Navbar = () => {
   const location = useLocation();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const navigate = useNavigate()
 
   return <div className="navbar">
@@ -18,7 +18,7 @@ export const Navbar = () => {
       </div>
       <Links />
       <Language />
-      {location.pathname == "/signup" ?
+      {location.pathname === "/signup" ?
         <div onClick={() => navigate("/")} className="sign_In">
           <SignIn />
           <p>{t("sign_in")}</p>

@@ -14,15 +14,15 @@ export const Language = () => {
     <p onClick={() => {
       i18n.changeLanguage('en')
       setLanguage("en")
-    }} className={language == "en" ? "activeLanguage" : ""}>Eng</p>
+    }} className={language === "en" ? "activeLanguage" : ""}>Eng</p>
     <p onClick={() => {
       i18n.changeLanguage('am')
 
       setLanguage("am")
-    }} className={language == "am" ? "activeLanguage" : ""}>Հայ</p>
+    }} className={language === "am" ? "activeLanguage" : ""}>Հայ</p>
     <p onClick={() => {
       i18n.changeLanguage('ru')
       setLanguage("ru")
-    }} className={language == "ru" ? "activeLanguage" : ""}>Рус</p>
+    }} className={language === "ru" ? "activeLanguage" : ""}>Рус</p>
   </div>
 }

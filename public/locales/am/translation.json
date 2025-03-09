@@ -26,5 +26,19 @@
   "donors": "Նվիրատուներ",
   "invalid_credentials": "Անվավեր հավատարմագրեր",
   "successful": "Հաջողակ",
-  "country": "Երկիր"
+  "country": "Երկիր",
+  "nameRequired": "Անունը պարտադիր է",
+  "lastNameRequired": "Ազգանունը պարտադիր է",
+  "countryRequired": "Երկիրը պարտադիր է",
+  "regionRequired": "Տարածքը պարտադիր է",
+  "phoneRequired": "Հեռախոսահամարը պարտադիր է",
+  "phoneInvalid": "Հեռախոսահամարը պետք է պարունակի միայն թվեր",
+  "phoneLength": "Հեռախոսահամարը պետք է պարունակի առնվազն 7 թվանշան",
+  "cityRequired": "Քաղաքը, գյուղը պարտադիր է",
+  "passwordRequired": "Գաղտնաբառը պարտադիր է",
+  "passwordLength": "Գաղտնաբառը պետք է պարունակի առնվազն 8 նիշ",
+  "confirmPasswordRequired": "Գաղտնաբառի հաստատումը պարտադիր է",
+  "passwordMismatch": "Գաղտնաբառերը չեն համընկնում",
+  "emailRequired": "Email-ը պարտադիր է",
+  "emailInvalid": "Email-ը անշնորհակալ է"
 }
