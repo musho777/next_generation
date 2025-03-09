@@ -69,12 +69,12 @@ export const Navbar = () => {
           setLanguage("ru")
         }} className={language == "ru" ? "activeLanguage" : ""}>Рус</p>
       </div>
-      {location.pathname == "/signin" ?
+      {location.pathname == "/signup" ?
         <div onClick={() => navigate("/")} className="sign_In">
           <SignIn />
           <p>{t("sign_in")}</p>
         </div> :
-        <div onClick={() => navigate("/signin")} className="sign_In">
+        <div onClick={() => navigate("/signup")} className="sign_In">
           <SignIn />
           <p>{t("sign")}</p>
         </div>
