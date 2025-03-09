@@ -3,9 +3,11 @@ import './styles.css'
 import myImage from '../../assets/images/logo.png';
 import { useLocation } from 'react-router-dom';
 import { MenuSvg, SignIn } from '../../assets/svg/svg';
+import { useTranslation } from 'react-i18next';
 export const Navbar = () => {
   const [language, setLanguage] = useState("en")
   const location = useLocation();
+  const { t, i18n } = useTranslation();
   return <div className="navbar">
     <div>
       <div className="logo">
@@ -17,42 +19,52 @@ export const Navbar = () => {
           href="/#Teachers"
           className={location.hash === "#Teachers" ? "navbar_active_link" : ""}
         >
-          Teachers
+          {t("teachers")}
         </a>
         <a
           href="/#Donors"
           className={location.hash === "#Donors" ? "navbar_active_link" : ""}
         >
-          Donors
+          {t("donors")}
         </a>
 
         <a
           href="/#AboutUs"
           className={location.hash === "#AboutUs" ? "navbar_active_link" : ""}
         >
-          About us
+          {t("about_us")}
         </a>
         <a
           href="/#ContactUs"
           className={location.hash === "#ContactUs" ? "navbar_active_link" : ""}
         >
-          Contact us
+          {t("contact_us")}
         </a>
         <a
           href="/#Blog"
           className={location.hash === "#Blog" ? "navbar_active_link" : ""}
         >
-          Blog
+          {t("blog")}
         </a>
       </div>
       <div className="language">
-        <p onClick={() => setLanguage("en")} className={language == "en" ? "activeLanguage" : ""}>Eng</p>
-        <p onClick={() => setLanguage("am")} className={language == "am" ? "activeLanguage" : ""}>Հայ</p>
-        <p onClick={() => setLanguage("ru")} className={language == "ru" ? "activeLanguage" : ""}>Рус</p>
+        <p onClick={() => {
+          i18n.changeLanguage('en')
+          setLanguage("en")
+        }} className={language == "en" ? "activeLanguage" : ""}>Eng</p>
+        <p onClick={() => {
+          i18n.changeLanguage('am')
+
+          setLanguage("am")
+        }} className={language == "am" ? "activeLanguage" : ""}>Հայ</p>
+        <p onClick={() => {
+          i18n.changeLanguage('ru')
+          setLanguage("ru")
+        }} className={language == "ru" ? "activeLanguage" : ""}>Рус</p>
       </div>
       <div className="sign_In">
         <SignIn />
-        <p>Sign In</p>
+        <p>{t("sign_in")}</p>
       </div>
       <div className="menu">
         <MenuSvg />

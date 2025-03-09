@@ -2,12 +2,15 @@ import { useState } from 'react';
 import { AuthForm } from "../../../components/authForm"
 import { UIButton } from "../../../UI/UIButton"
 import { UIInput } from "../../../UI/UIInput"
+import { useTranslation } from 'react-i18next';
 
 export const Singin = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [errors, setErrors] = useState({})
 
+  console.log(t)
 
   const validateSignIn = () => {
     const errors = {};
@@ -34,35 +37,35 @@ export const Singin = () => {
     }
   };
 
-  return <AuthForm>
+  return <AuthForm description={t("welcome_back")} title={t("sign_in")}>
     <form onSubmit={handleSubmit}>
       <div className="sign_up">
         <UIInput
           value={email}
           setValue={(e) => setEmail(e)}
-          label="Email"
+          label={t("email")}
           error={errors.email}
         />
         <UIInput
           value={password}
           setValue={(e) => setPassword(e)}
-          label="Password"
+          label={t("password")}
           type='password'
           error={errors.password}
         />
       </div>
       <div className="forgot_password">
-        <a href="#">Forgot Password?</a>
+        <a href="#">{t("forgot_password")}</a>
       </div>
       <div className="sign_in_button">
-        <UIButton full label="Ваше имя" />
+        <UIButton title={t("sign_in")} full />
       </div>
       <div className="sign_up_line" />
       <div className="login_type">
-        <p>Register as a</p>
+        <p>{t("register_as_a")}</p>
         <div className="login_type_button">
-          <button>Teacher</button>
-          <button>Donor</button>
+          <button>{t("teacher")}</button>
+          <button>{t("donor")}</button>
         </div>
       </div>
     </form>
