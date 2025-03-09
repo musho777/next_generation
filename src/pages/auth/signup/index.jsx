@@ -142,7 +142,9 @@ export const Signup = () => {
   };
 
   useEffect(() => {
-    validate();
+    if (Object.values(errors).length > 0) {
+      validate();
+    }
   }, [i18n.language]);
 
   return <AuthForm description={t("quick_and_easy")} title={t("sign_up")}>
