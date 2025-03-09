@@ -7,10 +7,9 @@ import Select from '@mui/material/Select';
 import { InputBase, styled } from '@mui/material';
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
-  // Add custom styling if necessary
 }));
 
-export const UISelect = ({ value, setValue, label, error }) => {
+export const UISelect = ({ option = [], value, setValue, label, error }) => {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
@@ -42,15 +41,15 @@ export const UISelect = ({ value, setValue, label, error }) => {
               lineHeight: 1.5,
             },
           }}
-          id="age-select-label"
-          shrink={value || error} // Ensures label moves up when there is a value or an error
+          id="ui-select-label"
+          shrink={value || error}
         >
           {label}
         </InputLabel>
 
         <Select
-          labelId="age-select-label"
-          id="age-select"
+          labelId="ui-select-label"
+          id="ui-select"
           value={value}
           onChange={handleChange}
           label={label}
@@ -68,9 +67,11 @@ export const UISelect = ({ value, setValue, label, error }) => {
             },
           }}
         >
-          <MenuItem value={"Ten"}>Ten</MenuItem>
-          <MenuItem value={"Twenty"}>Twenty</MenuItem>
-          <MenuItem value={"Thirty"}>Thirty</MenuItem>
+          {option.map((elm, i) => {
+            return <MenuItem key={i} value={elm.value}>{elm.label}</MenuItem>
+          })
+
+          }
         </Select>
       </FormControl>
     </Box>

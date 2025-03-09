@@ -15,7 +15,7 @@
 .logo>p {
   color: #FFFFFF;
   font-weight: 700;
-  font-family: "Assistant";
+  font-family: "Assistant", sans-serif;
 }
 
 .navbar_links {
@@ -27,7 +27,7 @@
 .navbar_links>a {
   font-weight: 700;
   text-decoration: none;
-  font-family: "Assistant";
+  font-family: "Assistant", sans-serif;
   font-size: 14px;
   line-height: 24px;
   text-transform: uppercase;
@@ -77,7 +77,7 @@
 .sign_In>p {
   font-weight: 700;
   text-decoration: none;
-  font-family: "Assistant";
+  font-family: "Assistant", sans-serif;
   font-size: 14px;
   line-height: 24px;
   cursor: pointer;

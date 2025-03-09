@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'Assistant';
+  src: url('../public/fonts/Assistant-Bold.ttf') format('truetype'),
+    url('../public/fonts/Assistant-ExtraBold.ttf') format('truetype'),
+    url('../public/fonts/Assistant-ExtraLight.ttf') format('truetype'),
+    url('../public/fonts/Assistant-Light.ttf') format('truetype'),
+    url('../public/fonts/Assistant-Medium.ttf') format('truetype'),
+    url('../public/fonts/Assistant-Regular.ttf') format('truetype'),
+    url('../public/fonts/Assistant-SemiBold.ttf') format('truetype'),
+  ;
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 .App {
   text-align: center;
   height: 100vh;

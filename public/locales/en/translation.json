@@ -25,5 +25,6 @@
   "teachers": "Teachers",
   "donors": "Donors",
   "invalid_credentials": "Invalid credentials",
-  "successful": "Successful"
+  "successful": "Successful",
+  "country": "Country"
 }

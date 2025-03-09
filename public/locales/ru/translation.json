@@ -25,5 +25,6 @@
   "teachers": "Учителя",
   "donors": "Доноры",
   "invalid_credentials": "Недействительные учетные данные",
-  "successful": "Успешный"
+  "successful": "Успешный",
+  "country": "Страна"
 }

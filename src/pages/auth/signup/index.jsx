@@ -31,6 +31,33 @@ export const Signup = () => {
   const navigation = useNavigate()
 
 
+  const countries = [
+    { value: "USA", label: "United States" },
+    { value: "ARM", label: "Armenia" },
+    { value: "CAN", label: "Canada" },
+    { value: "IND", label: "India" },
+    { value: "AUS", label: "Australia" },
+    { value: "UK", label: "United Kingdom" },
+  ];
+
+  const regions = [
+    { value: "NA", label: "North America" },
+    { value: "EU", label: "Europe" },
+    { value: "AS", label: "Asia" },
+    { value: "AF", label: "Africa" },
+    { value: "OC", label: "Oceania" },
+    { value: "SA", label: "South America" },
+    { value: "ME", label: "Middle East" },
+  ];
+
+  const cities = [
+    { value: "Yerevan", label: "Yerevan" },
+    { value: "Paris", label: "Paris" },
+    { value: "NewYork", label: "New York" },
+    { value: "Tokyo", label: "Tokyo" },
+    { value: "London", label: "London" },
+    { value: "Sydney", label: "Sydney" },
+  ];
 
   const validate = () => {
     const errors = {};
@@ -112,18 +139,21 @@ export const Signup = () => {
         />
         <UISelect
           value={country}
+          option={countries}
           setValue={(e) => setСountry(e)}
           error={errors.country}
           label={errors?.country ?? t("country")}
         />
         <UISelect
           value={region}
+          option={regions}
           setValue={(e) => setRegion(e)}
           error={errors.region}
           label={errors.region ?? t("region")}
         />
         <UISelect
           value={city}
+          option={cities}
           setValue={(e) => setCity(e)}
           error={errors.city}
           label={errors.city ?? t("city")}

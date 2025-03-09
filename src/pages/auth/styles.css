@@ -14,7 +14,7 @@
 }
 
 .sign_up_button>p {
-  font-family: "Assistant";
+  font-family: "Assistant", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -28,7 +28,7 @@
 }
 
 .forgot_password>a {
-  font-family: "Assistant";
+  font-family: "Assistant", sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
@@ -74,7 +74,7 @@
 }
 
 .login_type>p {
-  font-family: "Assistant";
+  font-family: "Assistant", sans-serif;
   font-weight: 600;
   font-size: 14px;
   line-height: 24px;
@@ -83,7 +83,7 @@
 
 .error_message {
   height: 10px;
-  font-family: "Assistant";
+  font-family: "Assistant", sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
@@ -99,7 +99,7 @@
 
 .user_data>p {
   height: 10px;
-  font-family: "Assistant";
+  font-family: "Assistant", sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
